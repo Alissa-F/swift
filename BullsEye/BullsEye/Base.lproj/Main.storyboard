@@ -99,7 +99,7 @@
                                 <rect key="frame" x="436" y="21" width="105" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" red="0.40000000000000002" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -107,6 +107,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="roundLabel" destination="BQf-0x-QEn" id="ptZ-uo-0lu"/>
                         <outlet property="scoreLabel" destination="13Y-81-4Dk" id="dEO-co-vuB"/>
                         <outlet property="slider" destination="vtG-ng-X1q" id="PzJ-tb-PGo"/>
                         <outlet property="targetLabel" destination="lCt-Tg-BwO" id="pDn-pt-MGO"/>
