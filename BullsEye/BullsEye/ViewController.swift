@@ -21,7 +21,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        startNewround()
+        startNewGame()
     }
 
     override func didReceiveMemoryWarning() {
@@ -53,12 +53,12 @@ class ViewController: UIViewController {
                                       preferredStyle: .alert)
         let action = UIAlertAction(title: "OK",
                                    style: .default,
-                                   handler: nil)
+                                   handler: { action in
+                                            self.startNewRound()
+                                    })
         alert.addAction(action)
         present (alert, animated: true,
                  completion: nil)
-
-        startNewround()
     }
 
     @IBAction func sliderMoved(_ slider: UISlider) {
@@ -66,7 +66,7 @@ class ViewController: UIViewController {
        // print("The value of the slider is now: \(slider.value)")
     }
     
-    func startNewround() {
+    func startNewRound() {
         round += 1
         targetValue = 1 + Int(arc4random_uniform(100))
         currentValue = 50
@@ -80,5 +80,16 @@ class ViewController: UIViewController {
         roundLabel.text = String(round)
 
     }
+    
+    func startNewGame() {
+        score = 0
+        round = 0
+        startNewRound()
+    }
+    
+    @IBAction func startOver() {
+        startNewGame()
+    }
+    
 }
 
