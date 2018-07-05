@@ -9,33 +9,35 @@
 import UIKit
 
 class ChecklistViewController: UITableViewController {
-    var row0item: ChecklistItem
-    var row1item: ChecklistItem
-    var row2item: ChecklistItem
-    var row3item: ChecklistItem
-    var row4item: ChecklistItem
+    var items: [ChecklistItem]
     
     required init?(coder aDecoder: NSCoder) {
+        items = [ChecklistItem]()
         
-        row0item = ChecklistItem()
+        let row0item = ChecklistItem()
         row0item.text = "Walk the dog"
         row0item.checked = false
+        items.append(row0item)
         
-        row1item = ChecklistItem()
+        let row1item = ChecklistItem()
         row1item.text = "Brush my teeth"
         row1item.checked = true
-        
-        row2item = ChecklistItem()
+        items.append(row1item)
+
+        let row2item = ChecklistItem()
         row2item.text = "Learn iOS development"
         row2item.checked = true
+        items.append(row2item)
         
-        row3item = ChecklistItem()
+        let row3item = ChecklistItem()
         row3item.text = "Soccer practice"
         row3item.checked = false
-        
-        row4item = ChecklistItem()
+        items.append(row3item)
+
+        let row4item = ChecklistItem()
         row4item.text = "Eat ice cream"
         row4item.checked = true
+        items.append(row4item)
         
         super.init(coder: aDecoder)
     }
