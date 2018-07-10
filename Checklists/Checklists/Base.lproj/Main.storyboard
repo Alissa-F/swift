@@ -45,6 +45,7 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Wm6-gv-ASx">
                             <connections>
                                 <action selector="addItem" destination="fY4-Wy-JUF" id="qUV-yp-zqA"/>
+                                <segue destination="M6y-3w-66P" kind="show" id="UY9-nH-htM"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -53,13 +54,45 @@
             </objects>
             <point key="canvasLocation" x="1156.875" y="120.4225352112676"/>
         </scene>
+        <!--Add Item-->
+        <scene sceneID="Dta-GY-daU">
+            <objects>
+                <tableViewController id="M6y-3w-66P" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="wv2-Xs-6Ce">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="qBJ-eW-6Cc">
+                                <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qBJ-eW-6Cc" id="8hc-ud-N5W">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="M6y-3w-66P" id="EHb-aL-1Z7"/>
+                            <outlet property="delegate" destination="M6y-3w-66P" id="ERa-Ob-0P2"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Add Item" id="QeA-9q-6Ei">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="A8j-8h-8pf"/>
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="54g-s9-886"/>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wdR-Hy-BjA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1875" y="117"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="cKn-Ub-0Ta">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dCN-XF-ZYz" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="P3V-4B-0sf">
-                        <rect key="frame" x="0.0" y="20" width="320" height="93"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
