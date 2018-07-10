@@ -13,6 +13,7 @@
 		7471CB5720BC6EF100F2F863 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7471CB5520BC6EF100F2F863 /* Main.storyboard */; };
 		7471CB5920BC6EF200F2F863 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7471CB5820BC6EF200F2F863 /* Assets.xcassets */; };
 		7471CB5C20BC6EF200F2F863 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7471CB5A20BC6EF200F2F863 /* LaunchScreen.storyboard */; };
+		748E14DF20F5285F0007E1B0 /* AddItemTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748E14DE20F5285F0007E1B0 /* AddItemTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		7471CB5820BC6EF200F2F863 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7471CB5B20BC6EF200F2F863 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7471CB5D20BC6EF200F2F863 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		748E14DE20F5285F0007E1B0 /* AddItemTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				7471CB5120BC6EF000F2F863 /* AppDelegate.swift */,
 				7471CB5320BC6EF000F2F863 /* ChecklistViewController.swift */,
 				74039FA920EAA54400410DE5 /* ChecklistItem.swift */,
+				748E14DE20F5285F0007E1B0 /* AddItemTableViewController.swift */,
 				7471CB5520BC6EF100F2F863 /* Main.storyboard */,
 				7471CB5820BC6EF200F2F863 /* Assets.xcassets */,
 				7471CB5A20BC6EF200F2F863 /* LaunchScreen.storyboard */,
@@ -138,6 +141,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				748E14DF20F5285F0007E1B0 /* AddItemTableViewController.swift in Sources */,
 				7471CB5420BC6EF000F2F863 /* ChecklistViewController.swift in Sources */,
 				74039FAA20EAA54400410DE5 /* ChecklistItem.swift in Sources */,
 				7471CB5220BC6EF000F2F863 /* AppDelegate.swift in Sources */,
