@@ -10,6 +10,8 @@ import UIKit
 
 class AddItemTableViewController: UITableViewController {
 
+    @IBOutlet weak var textField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     navigationItem.largeTitleDisplayMode = .never
@@ -18,6 +20,11 @@ class AddItemTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        textField.becomeFirstResponder()
     }
 
     override func didReceiveMemoryWarning() {
@@ -96,6 +103,8 @@ class AddItemTableViewController: UITableViewController {
     }
     
     @IBAction func done() {
+        print("Contents of the text field: \(textField.text!)")
+            
         navigationController?.popViewController(animated: true)
     }
     
