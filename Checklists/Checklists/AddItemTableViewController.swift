@@ -14,7 +14,7 @@ class AddItemTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    navigationItem.largeTitleDisplayMode = .never
+        navigationItem.largeTitleDisplayMode = .never
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
