@@ -77,9 +77,10 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                                     <connections>
                                                         <action selector="done" destination="M6y-3w-66P" eventType="editingDidEndOnExit" id="kfS-Wx-7jE"/>
+                                                        <outlet property="delegate" destination="M6y-3w-66P" id="zJS-it-tt2"/>
                                                     </connections>
                                                 </textField>
                                             </subviews>
@@ -99,13 +100,14 @@
                                 <action selector="cancel" destination="M6y-3w-66P" id="xuW-QJ-uS1"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="54g-s9-886">
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" style="done" systemItem="done" id="54g-s9-886">
                             <connections>
                                 <action selector="done" destination="M6y-3w-66P" id="aUD-fx-c4J"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="doneBarButton" destination="54g-s9-886" id="j1o-ND-HN8"/>
                         <outlet property="textField" destination="Lcd-1J-iHo" id="8TF-Iy-lde"/>
                     </connections>
                 </tableViewController>
