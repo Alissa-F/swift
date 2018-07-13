@@ -8,11 +8,22 @@
 
 import UIKit
 
+protocol AddItemViewControllerDelegate: class {
+    func addItemViewControllerDidCancel(
+        _ controller: AddItemTableViewController)
+    
+    func addItemViewController(
+        _ controller: AddItemTableViewController,
+    didFinishAdding item: ChecklistItem)
+}
+
 class AddItemTableViewController: UITableViewController,
 UITextFieldDelegate {
 
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var doneBarButton: UIBarButtonItem!
+    
+    weak var delegate: AddItemViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -101,13 +112,15 @@ UITextFieldDelegate {
     }
     */
     @IBAction func cancel() {
-        navigationController?.popViewController(animated: true)
+        delegate?.addItemViewControllerDidCancel(self)
     }
     
     @IBAction func done() {
-        print("Contents of the text field: \(textField.text!)")
-            
-        navigationController?.popViewController(animated: true)
+        let item = ChecklistItem()
+        item.text = textField.text!
+        item.checked = false
+        
+        delegate?.addItemViewController(self, didFinishAdding: item)
     }
     
     override func tableView(_ tableView: UITableView,
@@ -115,6 +128,7 @@ UITextFieldDelegate {
                             -> IndexPath? {
                             return nil
     }
+    
     func textField(_ textField:UITextField,
                    shouldChangeCharactersIn range: NSRange,
                    replacementString string: String) -> Bool {
