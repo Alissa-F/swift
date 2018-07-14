@@ -58,11 +58,11 @@
 		7471CB5020BC6EF000F2F863 /* Checklists */ = {
 			isa = PBXGroup;
 			children = (
+				7471CB5520BC6EF100F2F863 /* Main.storyboard */,
 				7471CB5120BC6EF000F2F863 /* AppDelegate.swift */,
 				7471CB5320BC6EF000F2F863 /* ChecklistViewController.swift */,
 				74039FA920EAA54400410DE5 /* ChecklistItem.swift */,
 				748E14DE20F5285F0007E1B0 /* AddItemTableViewController.swift */,
-				7471CB5520BC6EF100F2F863 /* Main.storyboard */,
 				7471CB5820BC6EF200F2F863 /* Assets.xcassets */,
 				7471CB5A20BC6EF200F2F863 /* LaunchScreen.storyboard */,
 				7471CB5D20BC6EF200F2F863 /* Info.plist */,

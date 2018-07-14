@@ -14,9 +14,16 @@ AddItemViewControllerDelegate {
         navigationController?.popViewController(animated:true)
     }
     
-    func addItemViewController(_ controller: AddItemTableViewController, didFinishAdding item: ChecklistItem) {
-        navigationController?.popViewController(animated:true)
+    func addItemViewController(
+        _ controller: AddItemTableViewController,
+        didFinishAdding item: ChecklistItem) {
+        let newRowIndex = items.count
+        items.append(item)
         
+        let indexPath = IndexPath(row: newRowIndex, section: 0)
+        let indexPaths = [indexPath]
+        tableView.insertRows(at: indexPaths, with: .automatic)
+        navigationController?.popViewController(animated:true)
     }
     
     var items: [ChecklistItem]
@@ -109,18 +116,7 @@ AddItemViewControllerDelegate {
         let label = cell.viewWithTag(1000) as! UILabel
         label.text = item.text
     }
-    @IBAction func addItem(){
-        let newRowIndex = items.count
-        
-        let item = ChecklistItem()
-        item.text = "I am a new row"
-        item.checked = false
-        items.append(item)
-        
-        let indexPath = IndexPath(row: newRowIndex, section: 0)
-        let indexPaths = [indexPath]
-        tableView.insertRows(at: indexPaths, with: .automatic)
-    }
+    
     override func tableView(
         _ tableView: UITableView,
         commit editingStyle: UITableViewCellEditingStyle,
@@ -138,5 +134,5 @@ AddItemViewControllerDelegate {
                             as! AddItemTableViewController
             controller.delegate = self
         }
-    }
+    } 
 }
