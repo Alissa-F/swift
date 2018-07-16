@@ -15,6 +15,9 @@ protocol AddItemViewControllerDelegate: class {
     func addItemViewController(
         _ controller: AddItemTableViewController,
     didFinishAdding item: ChecklistItem)
+    
+    func addItemViewController(_ controller: AddItemTableViewController,
+                               didFinishEditing item: ChecklistItem)
 }
 
 class AddItemTableViewController: UITableViewController,
@@ -28,10 +31,11 @@ UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.largeTitleDisplayMode = .never
+        
         if let item = itemToEdit {
             title = "Edit Item"
-            textField.text = item.text 
+            textField.text = item.text
+            doneBarButton.isEnabled = true
         }
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -121,11 +125,17 @@ UITextFieldDelegate {
     }
     
     @IBAction func done() {
+        if let itemToEdit = itemToEdit {
+        itemToEdit.text = textField.text!
+        delegate?.addItemViewController(self,
+                       didFinishEditing: itemToEdit)
+        
+        } else {
         let item = ChecklistItem()
         item.text = textField.text!
         item.checked = false
-        
         delegate?.addItemViewController(self, didFinishAdding: item)
+        }
     }
     
     override func tableView(_ tableView: UITableView,
