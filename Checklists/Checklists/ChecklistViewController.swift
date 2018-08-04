@@ -10,12 +10,12 @@ import UIKit
 
 class ChecklistViewController: UITableViewController,
 AddItemViewControllerDelegate {
-    func addItemViewControllerDidCancel(_ controller: AddItemTableViewController) {
+    func addItemViewControllerDidCancel(_ controller: ItemDetailViewController) {
         navigationController?.popViewController(animated:true)
     }
     
     func addItemViewController(
-        _ controller: AddItemTableViewController,
+        _ controller: ItemDetailViewController,
         didFinishAdding item: ChecklistItem) {
         let newRowIndex = items.count
         items.append(item)
@@ -134,12 +134,12 @@ AddItemViewControllerDelegate {
                           sender: Any?) {
         if segue.identifier == "AddItem" {
             let controller = segue.destination
-                            as! AddItemTableViewController
+                            as! ItemDetailViewController
             controller.delegate = self
             
         } else if segue.identifier == "EditItem" {
                     let controller = segue.destination
-                                    as! AddItemTableViewController
+                                    as! ItemDetailViewController
             
                     controller.delegate = self
             if let indexPath = tableView.indexPath(for: sender as! UITableViewCell){
@@ -147,7 +147,7 @@ AddItemViewControllerDelegate {
             }
         }
     }
-    func addItemViewController(_ controller: AddItemTableViewController,
+    func addItemViewController(_ controller: ItemDetailViewController,
         didFinishEditing item: ChecklistItem) {
         if let index = items.index(of: item) {
             let indexPath = IndexPath(row: index, section: 0)
