@@ -57,6 +57,9 @@ ItemDetailViewControllerDelegate {
         items.append(row4item)
         
         super.init(coder: aDecoder)
+        
+        print("Documents folder is \(documentsDirectory())")
+        print("Data file is \(dataFilePath())")
     }
 
     override func viewDidLoad() {
@@ -128,6 +131,7 @@ ItemDetailViewControllerDelegate {
         
         let indexPaths = [indexPath]
         tableView.deleteRows(at: indexPaths, with: .automatic)
+        saveChecklistItems()
     }
     
     override func prepare(for segue: UIStoryboardSegue,
@@ -147,15 +151,39 @@ ItemDetailViewControllerDelegate {
             }
         }
     }
-    func itemDetailViewController(_ controller: ItemDetailViewController,
+    func itemDetailViewController(
+                    _ controller: ItemDetailViewController,
         didFinishEditing item: ChecklistItem) {
         if let index = items.index(of: item) {
             let indexPath = IndexPath(row: index, section: 0)
             if let cell = tableView.cellForRow(at: indexPath) {
                 configureText(for: cell, with: item)
+                saveChecklistItems()
             }
             navigationController?.popViewController(animated: true)
         }
     }
+    
+    func documentsDirectory() -> URL {
+        let paths = FileManager.default.urls(for: .documentDirectory,
+                                                in: .userDomainMask)
+        
+        return paths[0]
+    }
+    
+    func dataFilePath() -> URL {
+        return documentsDirectory().appendingPathComponent(
+                                        "Checklists.plist")
+    
+    }
+    func saveChecklistItems() {
+        let encoder = PropertyListEncoder()
+        do {
+            let data = try encoder.encode(items)
+            try data.write(to: dataFilePath(),
+                           options: Data.WritingOptions.atomic)
+        } catch {
+            print("Error encoding item array!")
+        }
+    }
 }
-
