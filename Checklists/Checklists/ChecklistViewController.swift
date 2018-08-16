@@ -24,12 +24,13 @@ ItemDetailViewControllerDelegate {
         let indexPaths = [indexPath]
         tableView.insertRows(at: indexPaths, with: .automatic)
         navigationController?.popViewController(animated:true)
+        
+        saveChecklistItems()
     }
     
-    var items: [ChecklistItem]
+    var items = [ChecklistItem]()
     
     required init?(coder aDecoder: NSCoder) {
-        items = [ChecklistItem]()
         
         let row0item = ChecklistItem()
         row0item.text = "Walk the dog"
@@ -65,6 +66,7 @@ ItemDetailViewControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.prefersLargeTitles = true
+        loadChecklistItems()
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -114,6 +116,7 @@ ItemDetailViewControllerDelegate {
             configureCheckmark(for: cell, with: item)
         }
         tableView.deselectRow(at: indexPath, animated: true)
+        saveChecklistItems()
     }
     
     func configureText(for cell: UITableViewCell,
@@ -186,4 +189,17 @@ ItemDetailViewControllerDelegate {
             print("Error encoding item array!")
         }
     }
+    
+    func loadChecklistItems() {
+        let path = dataFilePath()
+        if let data = try? Data(contentsOf: path) {
+            let decoder = PropertyListDecoder()
+            do {
+                items = try decoder.decode([ChecklistItem].self,
+                                           from: data)
+            } catch {
+                print("Error decoding item array!")
+                }
+            }
+        }
 }
