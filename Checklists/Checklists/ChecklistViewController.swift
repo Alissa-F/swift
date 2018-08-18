@@ -65,7 +65,7 @@ ItemDetailViewControllerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.largeTitleDisplayMode = .never
         loadChecklistItems()
         // Do any additional setup after loading the view, typically from a nib.
     }
