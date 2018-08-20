@@ -10,6 +10,8 @@ import UIKit
 
 class ChecklistViewController: UITableViewController,
 ItemDetailViewControllerDelegate {
+var checklist: Checklist!
+    
     func itemDetailViewControllerDidCancel(_ controller: ItemDetailViewController) {
         navigationController?.popViewController(animated:true)
     }
@@ -67,6 +69,7 @@ ItemDetailViewControllerDelegate {
         super.viewDidLoad()
         navigationItem.largeTitleDisplayMode = .never
         loadChecklistItems()
+        title = checklist.name
         // Do any additional setup after loading the view, typically from a nib.
     }
 
